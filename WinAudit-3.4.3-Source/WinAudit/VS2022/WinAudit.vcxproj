@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{ffebb9b0-93e1-4a3d-880f-416c822d3841}</ProjectGuid>
+    <RootNamespace>WinAudit</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <EnableASAN>false</EnableASAN>
+    <EnableFuzzer>false</EnableFuzzer>
+    <SpectreMitigation>Spectre</SpectreMitigation>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+    <SpectreMitigation>Spectre</SpectreMitigation>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <EnableASAN>false</EnableASAN>
+    <EnableFuzzer>false</EnableFuzzer>
+    <SpectreMitigation>Spectre</SpectreMitigation>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+    <SpectreMitigation>Spectre</SpectreMitigation>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>EnableAllWarnings</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>..\..\</AdditionalIncludeDirectories>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <ControlFlowGuard>false</ControlFlowGuard>
+      <PrecompiledHeaderFile />
+      <IntelJCCErratum>true</IntelJCCErratum>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(Platform)\$(Configuration)\</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SetupAPI.Lib;Mpr.lib;Dbghelp.lib;NetAPI32.Lib;Secur32.Lib;Version.lib;IPHlpApi.Lib;Psapi.Lib;MSImg32.Lib;Msi.lib;taskschd.lib;WbemUuid.Lib;MSTask.Lib;comsupp.lib;Normaliz.lib;PxsBase.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <LargeAddressAware>false</LargeAddressAware>
+      <ImageHasSafeExceptionHandlers>true</ImageHasSafeExceptionHandlers>
+    </Link>
+    <ResourceCompile>
+      <AdditionalIncludeDirectories>../../;../../PxsBase/Resource Files/</AdditionalIncludeDirectories>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>EnableAllWarnings</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>..\..\</AdditionalIncludeDirectories>
+      <DebugInformationFormat>None</DebugInformationFormat>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <ControlFlowGuard>Guard</ControlFlowGuard>
+      <PrecompiledHeaderFile />
+      <IntelJCCErratum>true</IntelJCCErratum>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(Platform)\$(Configuration)\</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SetupAPI.Lib;Mpr.lib;Dbghelp.lib;NetAPI32.Lib;Secur32.Lib;Version.lib;IPHlpApi.Lib;Psapi.Lib;MSImg32.Lib;Msi.lib;taskschd.lib;WbemUuid.Lib;MSTask.Lib;comsupp.lib;Normaliz.lib;PxsBase.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <GenerateMapFile>true</GenerateMapFile>
+      <MapFileName>$(SolutionDir)$(Platform)\$(Configuration)\$(ProjectName).map</MapFileName>
+      <LargeAddressAware>false</LargeAddressAware>
+    </Link>
+    <ResourceCompile>
+      <AdditionalIncludeDirectories>../../;../../PxsBase/Resource Files/</AdditionalIncludeDirectories>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>EnableAllWarnings</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>..\..\</AdditionalIncludeDirectories>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <ControlFlowGuard>false</ControlFlowGuard>
+      <PrecompiledHeaderFile />
+      <IntelJCCErratum>true</IntelJCCErratum>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(Platform)\$(Configuration)\</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SetupAPI.Lib;Mpr.lib;Dbghelp.lib;NetAPI32.Lib;Secur32.Lib;Version.lib;IPHlpApi.Lib;Psapi.Lib;MSImg32.Lib;Msi.lib;taskschd.lib;WbemUuid.Lib;MSTask.Lib;comsupp.lib;Normaliz.lib;PxsBase.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <LargeAddressAware>true</LargeAddressAware>
+    </Link>
+    <ResourceCompile>
+      <AdditionalIncludeDirectories>../../;../../PxsBase/Resource Files/</AdditionalIncludeDirectories>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>EnableAllWarnings</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>..\..\</AdditionalIncludeDirectories>
+      <DebugInformationFormat>None</DebugInformationFormat>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <ControlFlowGuard>Guard</ControlFlowGuard>
+      <PrecompiledHeaderFile />
+      <IntelJCCErratum>true</IntelJCCErratum>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(Platform)\$(Configuration)\</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SetupAPI.Lib;Mpr.lib;Dbghelp.lib;NetAPI32.Lib;Secur32.Lib;Version.lib;IPHlpApi.Lib;Psapi.Lib;MSImg32.Lib;Msi.lib;taskschd.lib;WbemUuid.Lib;MSTask.Lib;comsupp.lib;Normaliz.lib;PxsBase.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <GenerateMapFile>true</GenerateMapFile>
+      <MapFileName>$(SolutionDir)$(Platform)\$(Configuration)\$(ProjectName).map</MapFileName>
+      <LargeAddressAware>true</LargeAddressAware>
+    </Link>
+    <ResourceCompile>
+      <AdditionalIncludeDirectories>../../;../../PxsBase/Resource Files/</AdditionalIncludeDirectories>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Header Files\AccessDatabase.h" />
+    <ClInclude Include="..\Header Files\AuditData.h" />
+    <ClInclude Include="..\Header Files\AuditDatabase.h" />
+    <ClInclude Include="..\Header Files\AuditRecord.h" />
+    <ClInclude Include="..\Header Files\AuditThread.h" />
+    <ClInclude Include="..\Header Files\AuditThreadParameter.h" />
+    <ClInclude Include="..\Header Files\CommunicationPortInformation.h" />
+    <ClInclude Include="..\Header Files\ConfigurationSettings.h" />
+    <ClInclude Include="..\Header Files\CpuInformation.h" />
+    <ClInclude Include="..\Header Files\DatabaseAdministrationDialog.h" />
+    <ClInclude Include="..\Header Files\Ddk.h" />
+    <ClInclude Include="..\Header Files\DeviceInformation.h" />
+    <ClInclude Include="..\Header Files\DiskInformation.h" />
+    <ClInclude Include="..\Header Files\DisplayInformation.h" />
+    <ClInclude Include="..\Header Files\DriveInformation.h" />
+    <ClInclude Include="..\Header Files\EventLogInformation.h" />
+    <ClInclude Include="..\Header Files\EventLogRecord.h" />
+    <ClInclude Include="..\Header Files\GroupUserInformation.h" />
+    <ClInclude Include="..\Header Files\KerberosTicketInformation.h" />
+    <ClInclude Include="..\Header Files\NtServiceInformation.h" />
+    <ClInclude Include="..\Header Files\ObjectPermissionInformation.h" />
+    <ClInclude Include="..\Header Files\Odbc.h" />
+    <ClInclude Include="..\Header Files\OdbcDatabase.h" />
+    <ClInclude Include="..\Header Files\OdbcExportDialog.h" />
+    <ClInclude Include="..\Header Files\OdbcInformation.h" />
+    <ClInclude Include="..\Header Files\OdbcRecordSet.h" />
+    <ClInclude Include="..\Header Files\OpenNetworkPortInformation.h" />
+    <ClInclude Include="..\Header Files\PeripheralInformation.h" />
+    <ClInclude Include="..\Header Files\PrinterInformation.h" />
+    <ClInclude Include="..\Header Files\ProcessInformation.h" />
+    <ClInclude Include="..\Header Files\Resources.h" />
+    <ClInclude Include="..\Header Files\SecurityInformation.h" />
+    <ClInclude Include="..\Header Files\SmbiosInformation.h" />
+    <ClInclude Include="..\Header Files\SoftwareInformation.h" />
+    <ClInclude Include="..\Header Files\TaskSchedulerInformation.h" />
+    <ClInclude Include="..\Header Files\TcpIpInformation.h" />
+    <ClInclude Include="..\Header Files\WellKnowPortsMap.h" />
+    <ClInclude Include="..\Header Files\WinAudit.h" />
+    <ClInclude Include="..\Header Files\WinAuditConfigDialog.h" />
+    <ClInclude Include="..\Header Files\WinAuditFrame.h" />
+    <ClInclude Include="..\Header Files\WindowsFirewallInformation.h" />
+    <ClInclude Include="..\Header Files\WindowsInformation.h" />
+    <ClInclude Include="..\Header Files\WindowsNetworkInformation.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\Resource Files\close_16.bmp" />
+    <Image Include="..\Resource Files\close_on_16.bmp" />
+    <Image Include="..\Resource Files\flag_be_16.bmp" />
+    <Image Include="..\Resource Files\flag_br_16.bmp" />
+    <Image Include="..\Resource Files\flag_cz_16.bmp" />
+    <Image Include="..\Resource Files\flag_da_16.bmp" />
+    <Image Include="..\Resource Files\flag_de_16.bmp" />
+    <Image Include="..\Resource Files\flag_es_16.bmp" />
+    <Image Include="..\Resource Files\flag_fi_16.bmp" />
+    <Image Include="..\Resource Files\flag_fr_16.bmp" />
+    <Image Include="..\Resource Files\flag_gb_16.bmp" />
+    <Image Include="..\Resource Files\flag_gr_16.bmp" />
+    <Image Include="..\Resource Files\flag_hu_16.bmp" />
+    <Image Include="..\Resource Files\flag_id_16.bmp" />
+    <Image Include="..\Resource Files\flag_il_16.bmp" />
+    <Image Include="..\Resource Files\flag_it_16.bmp" />
+    <Image Include="..\Resource Files\flag_jp_16.bmp" />
+    <Image Include="..\Resource Files\flag_kr_16.bmp" />
+    <Image Include="..\Resource Files\flag_nl_16.bmp" />
+    <Image Include="..\Resource Files\flag_pl_16.bmp" />
+    <Image Include="..\Resource Files\flag_pt_16.bmp" />
+    <Image Include="..\Resource Files\flag_rs_16.bmp" />
+    <Image Include="..\Resource Files\flag_ru_16.bmp" />
+    <Image Include="..\Resource Files\flag_sk_16.bmp" />
+    <Image Include="..\Resource Files\flag_th_16.bmp" />
+    <Image Include="..\Resource Files\flag_tr_16.bmp" />
+    <Image Include="..\Resource Files\flag_tw_16.bmp" />
+    <Image Include="..\Resource Files\log_file_16.bmp" />
+    <Image Include="..\Resource Files\not_saved_16.bmp" />
+    <Image Include="..\Resource Files\save_16.bmp" />
+    <Image Include="..\Resource Files\tree_leaf.bmp" />
+    <Image Include="..\Resource Files\tree_node_closed.bmp" />
+    <Image Include="..\Resource Files\tree_node_open.bmp" />
+    <Image Include="..\Resource Files\winaudit_freeware.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="..\Resource Files\winaudit.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\Resource Files\winaudit_cs.txt" />
+    <Text Include="..\Resource Files\winaudit_da.txt" />
+    <Text Include="..\Resource Files\winaudit_de.txt" />
+    <Text Include="..\Resource Files\winaudit_el.txt" />
+    <Text Include="..\Resource Files\winaudit_en.txt" />
+    <Text Include="..\Resource Files\winaudit_es.txt" />
+    <Text Include="..\Resource Files\winaudit_fi.txt" />
+    <Text Include="..\Resource Files\winaudit_fr_be.txt" />
+    <Text Include="..\Resource Files\winaudit_fr_fr.txt" />
+    <Text Include="..\Resource Files\winaudit_he.txt" />
+    <Text Include="..\Resource Files\winaudit_hu.txt" />
+    <Text Include="..\Resource Files\winaudit_id.txt" />
+    <Text Include="..\Resource Files\winaudit_it.txt" />
+    <Text Include="..\Resource Files\winaudit_jp.txt" />
+    <Text Include="..\Resource Files\winaudit_ko.txt" />
+    <Text Include="..\Resource Files\winaudit_nl.txt" />
+    <Text Include="..\Resource Files\winaudit_pl.txt" />
+    <Text Include="..\Resource Files\winaudit_pt_br.txt" />
+    <Text Include="..\Resource Files\winaudit_pt_pt.txt" />
+    <Text Include="..\Resource Files\winaudit_ru.txt" />
+    <Text Include="..\Resource Files\winaudit_sk.txt" />
+    <Text Include="..\Resource Files\winaudit_sr.txt" />
+    <Text Include="..\Resource Files\winaudit_th.txt" />
+    <Text Include="..\Resource Files\winaudit_tr.txt" />
+    <Text Include="..\Resource Files\winaudit_zh_tw.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Resource Files\winaudit_help.rtf" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\Source Files\AccessDatabase.cpp" />
+    <ClCompile Include="..\Source Files\AuditData.cpp" />
+    <ClCompile Include="..\Source Files\AuditDatabase.cpp" />
+    <ClCompile Include="..\Source Files\AuditRecord.cpp" />
+    <ClCompile Include="..\Source Files\AuditThread.cpp" />
+    <ClCompile Include="..\Source Files\AuditThreadParameter.cpp" />
+    <ClCompile Include="..\Source Files\CommunicationPortInformation.cpp" />
+    <ClCompile Include="..\Source Files\ConfigurationSettings.cpp" />
+    <ClCompile Include="..\Source Files\CpuInformation.cpp" />
+    <ClCompile Include="..\Source Files\DatabaseAdministrationDialog.cpp" />
+    <ClCompile Include="..\Source Files\DeviceInformation.cpp" />
+    <ClCompile Include="..\Source Files\DiskInformation.cpp" />
+    <ClCompile Include="..\Source Files\DisplayInformation.cpp" />
+    <ClCompile Include="..\Source Files\DriveInformation.cpp" />
+    <ClCompile Include="..\Source Files\EventLogInformation.cpp" />
+    <ClCompile Include="..\Source Files\EventLogRecord.cpp" />
+    <ClCompile Include="..\Source Files\GroupUserInformation.cpp" />
+    <ClCompile Include="..\Source Files\KerberosTicketInformation.cpp" />
+    <ClCompile Include="..\Source Files\main.cpp" />
+    <ClCompile Include="..\Source Files\NtServiceInformation.cpp" />
+    <ClCompile Include="..\Source Files\ObjectPermissionInformation.cpp" />
+    <ClCompile Include="..\Source Files\Odbc.cpp" />
+    <ClCompile Include="..\Source Files\OdbcDatabase.cpp" />
+    <ClCompile Include="..\Source Files\OdbcExportDialog.cpp" />
+    <ClCompile Include="..\Source Files\OdbcInformation.cpp" />
+    <ClCompile Include="..\Source Files\OdbcRecordSet.cpp" />
+    <ClCompile Include="..\Source Files\OpenNetworkPortInformation.cpp" />
+    <ClCompile Include="..\Source Files\PeripheralInformation.cpp" />
+    <ClCompile Include="..\Source Files\PrinterInfomation.cpp" />
+    <ClCompile Include="..\Source Files\ProcessInformation.cpp" />
+    <ClCompile Include="..\Source Files\SecurityInformation.cpp" />
+    <ClCompile Include="..\Source Files\SmbiosInformation.cpp" />
+    <ClCompile Include="..\Source Files\SoftwareInformation.cpp" />
+    <ClCompile Include="..\Source Files\TaskSchedulerInformation.cpp" />
+    <ClCompile Include="..\Source Files\TcpIpInformation.cpp" />
+    <ClCompile Include="..\Source Files\WinAuditConfigDialog.cpp" />
+    <ClCompile Include="..\Source Files\WinAuditFrame.cpp" />
+    <ClCompile Include="..\Source Files\WinAuditGlobals.cpp" />
+    <ClCompile Include="..\Source Files\WindowsFirewallInformation.cpp" />
+    <ClCompile Include="..\Source Files\WindowsInformation.cpp" />
+    <ClCompile Include="..\Source Files\WindowsNetworkInformation.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
